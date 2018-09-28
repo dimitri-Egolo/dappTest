@@ -107,7 +107,7 @@ WSGI_APPLICATION = 'dapp_Test.wsgi.application'
 DATABASES = {
     'default': {
         'CONN_MAX_AGE': 0,
-        'ENGINE': 'django.db.backends.mysql', #postgresql_psycopg2,mysql
+        'ENGINE': 'django.db.backends.postgresql_psycopg2', #postgresql_psycopg2,mysql
         'HOST': 'localhost',
         'NAME': 'dapp_test',
         'PASSWORD': 'gmS8lt3tocmL',

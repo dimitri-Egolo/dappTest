@@ -1,0 +1,343 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+nav ul a,
+nav .brand-logo {
+  color: #ef5350;
+}
+
+#index-banner{
+  top: 0px;
+}
+
+/* .login-body {
+  background-image: url();
+} */
+
+#updateBody nav {
+  position: fixed;
+  background-color: black;
+  color: white;
+  border: 0;
+}
+
+.section-title {
+  font-weight: lighter;
+}
+
+nav {
+  position: fixed;
+  background-color: transparent;
+  color: white;
+  border: 0;
+}
+
+.navbar {
+  height: 80px;
+  background-color: transparent;
+  border: 0;
+  color: white;
+  z-index: 100;
+  transition: background-color 1s ease 0s;
+}
+
+nav .nav-wrapper {
+    position: relative;
+    height: 100%;
+    padding-left: 40px;
+    padding-right: 40px;
+
+}
+
+nav .brand-logo {
+  color: white;
+}
+
+nav .brand-logo:hover{
+  color: #ef5350;
+  /* border: 1px solid #ef5350; */
+}
+
+nav .navbar-nav > li > a {
+  color: white;
+}
+
+nav .navbar-nav > li > a:hover {
+  color: #ef5350;
+  border-bottom: 1px solid #ef5350;
+}
+
+nav .navbar-nav > li > a:active {
+  color: #ef5350;
+  border-bottom: 1px solid #ef5350;
+}
+
+nav .navbar-nav > li > a:focus {
+  color: #ef5350;
+  border-bottom: 1px solid #ef5350;
+}
+
+/* nav .navbar-nav > li > a:visited {
+  color: white;
+  text-decoration: none;
+} */
+
+nav .navbar-nav > .active {
+
+  > a, > a:hover, > a:focus {
+    background-color: transparent;
+    color: #ef5350;
+  }
+}
+
+/* Solid class attached on scroll past first section */
+
+.navbar.solid {
+  background-color: black;
+  transition: background-color 1s ease 0s;
+  box-shadow: 0 0 4px grey;
+
+    .brand-logo {
+      color: #ef5350;
+      transition: color 1s ease 0s;
+    }
+
+    .navbar-nav {
+
+       > li {
+
+          > a {
+            color: #ef5350;
+            transition: color 1s ease 0s;
+          }
+
+       } //end li
+
+    } //end .navbar-nav
+
+}
+
+p {
+  line-height: 2rem;
+}
+
+.sidenav-trigger {
+  color: #ef5350;
+}
+
+.parallax-container {
+  min-height: 380px;
+  line-height: 0;
+  height: auto;
+  color: rgba(255,255,255,.9);
+}
+.parallax-container .section {
+  width: 100%;
+}
+
+/* our skills css */
+.clearfix:before,.clearfix:after {content: " "; display: table;}
+.clearfix:after {clear: both;}
+.clearfix {*zoom: 1;}
+
+.c100.skill-color .bar, .c100.skill-color .fill {
+  border-color: #f44336 !important;
+}
+.c100.skill-color:hover > span {
+  color: #f44336;
+}
+.c100.skill-color.dark .bar, .c100.skill-color.dark .fill {
+  border-color: #f44336 !important;
+}
+.c100.skill-color.dark:hover > span {
+  color: #f44336;
+}
+
+/* partners */
+.partners{
+  margin-top: 80px;
+}
+
+.partner-img {
+  -webkit-transition: width 2s; /* Safari */
+  transition: width 2s;
+}
+
+/* our services */
+.services-card {
+  color: black;
+}
+.services-list li {
+  margin:0 0 30px 0;
+}
+
+/* login css */
+.login-card {
+  margin: 0 auto;
+  float: none;
+  margin-top: 60px;
+  max-width: 450px;
+}
+
+.login-input-row {
+  margin-bottom: 5px;
+}
+
+/* register css */
+.register-card {
+  margin: 0 auto;
+  float: none;
+  margin-top: 60px;
+  max-width: 700px;
+}
+
+.conditions-checkbox {
+  padding-left: 30px !important;
+}
+
+.dropdown-content {
+    background-color: #fff;
+    margin: 0;
+    margin-top: 64px;
+    display: none;
+    min-width: 150px;
+    overflow-y: auto;
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    top: 0 !important;
+    z-index: 9999;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+}
+
+.dropdown-content li > a, .dropdown-content li > span {
+    font-size: 16px;
+    color:black;
+    display: block;
+    line-height: 22px;
+    padding: 14px 16px;
+}
+
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  display: initial;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+.fa:hover {
+    /* opacity: 0.7; */
+    background-color: white;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-facebook:hover {
+  color: #3B5998;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-twitter:hover {
+  color: #55ACEE;
+}
+
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+
+.fa-google:hover {
+  color: #dd4b39;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+.fa-linkedin:hover {
+  color: #007bb5;
+}
+
+.icon-footer {
+  position: relative;
+  top: 5px;
+  margin-right: 5px;
+}
+
+.footer-line {
+  margin-left: 29px;
+}
+
+.slider .indicators .indicator-item.active {
+    background-color: #ef5350;
+}
+
+@media only screen and (max-width : 992px) {
+  .parallax-container .section {
+    position: absolute;
+    top: 40%;
+  }
+  #index-banner .section {
+    top: 10%;
+  }
+
+  nav {
+    background-color: black;
+  }
+
+  .navbar{
+    height: 80px;
+    background-color: black;
+    border: 0;
+    color: white;
+    z-index: 100;
+    transition: background-color 1s ease 0s;
+  }
+
+  nav .nav-wrapper {
+      position: relative;
+      height: 100%;
+      padding-left: 0px;
+      padding-right: 0px;
+  }
+}
+
+.copyright {
+  border-top: 2px solid #ef5350;
+}
+
+@media only screen and (max-width : 600px) {
+  #index-banner .section {
+    top: 0;
+  }
+}
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+  font-size: inherit;
+}
+
+footer.page-footer {
+  margin: 0;
+}

@@ -1,0 +1,117 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Dapp Test</title>
+
+  {% include "authentication/stylesheet.html" with color="black" %}
+</head>
+<body id="updateBody">
+  {% include 'authentication/header.html' %}
+  <div class="container">
+    <div class="section" style="padding-top: 120px;">
+      <h2 class="center">Update profile</h2>
+      <div class="divider"></div>
+      <form id="update_user" enctype="multipart/form-data" action="{% url 'auth:update' user.id %}" method="post">
+        {% csrf_token %}
+        <div class="row" style="margin-bottom: 20px;">
+          <blockquote>
+            <h5><i>General Information</i></h5>
+          </blockquote>
+          <div class="input-field col s12 m6 l6">
+            <i class="material-icons prefix">account_box</i>
+            <input id="first_name" name="first_name" form="update_user" type="text" value="{{user.first_name}}" class="validate">
+            <label for="first_name">First name</label>
+          </div>
+          <div class="input-field col s12 m6 l6">
+            <i class="material-icons prefix">account_box</i>
+            <input id="last_name" name="last_name" form="update_user" type="text" value="{{user.last_name}}" class="validate">
+            <label for="last_name">Last name</label>
+          </div>
+          <div class="input-field col s12 m6 l6">
+            <i class="material-icons prefix">email</i>
+            <input id="email" name="email" form="update_user" type="email" value="{{user.email}}" class="validate" required>
+            <label for="email">Email</label>
+          </div>
+          <div class="input-field col s12 m6 l6">
+            <i class="material-icons prefix">account_box</i>
+            <input id="username" name="username" form="update_user" type="text" value="{{user.username}}" class="validate" required>
+            <label for="username">Username</label>
+          </div>
+
+          <div class="file-field input-field col s12">
+            <div class="btn red lighten-1">
+              <span>Photo</span>
+              <input name="photo" form="update_user" type="file">
+            </div>
+            <div class="file-path-wrapper">
+              <input form="update_user" class="file-path validate" type="text">
+            </div>
+          </div>
+          <div id="change_pwd_checkbox" class="col s12">
+            <label>
+              <input type="checkbox" name="change_pwd" class="filled-in red" form="update_user" onclick="showMe('password_div')"/>
+              <span><i>Change your password</i></span>
+            </label>
+          </div>
+        </div>
+
+        <div id="password_div" class="row" style="display: None;">
+          <div class="input-field col s12 m6 l6">
+            <i class="material-icons prefix">lock</i>
+            <input id="password" name="password" form="update_user" type="password" class="validate">
+            <label for="password">Password</label>
+          </div>
+
+          <div class="input-field col s12 m6 l6">
+            <i class="material-icons prefix">verified_user</i>
+            <input id="confirm_pwd" name="confirm_pwd" form="update_user" type="password" class="validate">
+            <label for="confirm_pwd">Confirm password</label>
+            <span id='message'></span>
+          </div>
+        </div>
+
+        <div class="row" style="margin-top: 50px;">
+          <div class="col s12">
+            <input id="edit" class="btn-large right waves-effect waves-light red lighten-1" type="submit" value="Edit your profile"/>
+            <a href="{% url 'home' %}" id="download-button" class="btn-large right waves-effect waves-light black">Cancel</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  {% include 'authentication/footer.html' %}
+
+  {% include 'authentication/script.html' %}
+  <script>
+  $('#password, #confirm_pwd').on('keyup', function () {
+    if ($('#password').val() == $('#confirm_pwd').val()) {
+      $('#message').html('Password Matching').css('color', 'green');
+    } else
+      $('#message').html('Password Not Matching').css('color', 'red');
+    });
+
+    function showMe (box) {
+
+        var chboxs = document.getElementsByName("change_pwd");
+        var vis = "none";
+        for(var i=0;i<chboxs.length;i++) {
+            if(chboxs[i].checked){
+             vis = "block";
+             document.getElementById("password").required = true;
+             document.getElementById("confirm_pwd").required = true;
+                break;
+            } else {
+              document.getElementById("password").required = true;
+              document.getElementById("confirm_pwd").required = true;
+              break;
+            }
+        }
+        document.getElementById(box).style.display = vis;
+    }
+  </script>
+  </body>
+</html>

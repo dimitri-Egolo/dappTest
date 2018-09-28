@@ -1,4 +1,5 @@
 from dapp_Test.settings import *
+import dj_database_url
 
 DEBUG = False
 
@@ -8,3 +9,5 @@ TEMPLATE_DEBUG = False
 SECRET_KEY = '@v-a-7j*@+b6&p$)dwh*fcth%#5x5v-b6q6x^sj42f1j9w_a4'
 
 ALLOWED_HOSTS = ['dapptest.herokuapp.com']
+
+DATABASES['default'] = dj_database_url.config()

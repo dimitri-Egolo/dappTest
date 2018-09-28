@@ -26,7 +26,7 @@ SECRET_KEY = 'u%cbca6)^!nd@p0jx63lx6@*r^i_hghb$&iaajhyk00my4k)b5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['dapptest.herokuapp.com']
 
 AUTH_USER_MODEL = 'authentication.UserProfile'
 

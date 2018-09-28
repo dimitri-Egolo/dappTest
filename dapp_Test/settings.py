@@ -50,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'dapp_Test.urls'
@@ -60,8 +61,7 @@ LOGIN_URL = 'auth:authentication'
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 # STATIC_URL = '/static/'
-MEDIA_URL = '/media/'
-MEDIA_ROOT = ''
+
 # STATIC_ROOT = os.path.join(DATA_DIR, 'static')
 #
 # STATICFILES_DIRS = (
@@ -70,8 +70,6 @@ MEDIA_ROOT = ''
 
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.9/howto/static-files/
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 STATIC_URL = '/static/'
 
@@ -80,7 +78,9 @@ STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
 )
 
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = ''
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 TEMPLATES = [
     {
@@ -107,7 +107,7 @@ WSGI_APPLICATION = 'dapp_Test.wsgi.application'
 DATABASES = {
     'default': {
         'CONN_MAX_AGE': 0,
-        'ENGINE': 'django.db.backends.postgresql_psycopg2', #mysql
+        'ENGINE': 'django.db.backends.mysql', #postgresql_psycopg2,mysql
         'HOST': 'localhost',
         'NAME': 'dapp_test',
         'PASSWORD': 'gmS8lt3tocmL',

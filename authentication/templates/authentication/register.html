@@ -20,6 +20,9 @@
                 {% csrf_token %}
                 <div class="card-content">
                   <span class="card-title">Register</span>
+                    <div class="row">
+                      <h6 class="right" style="color: red;">{{message}}</h6>
+                    </div>
                     <div class="row login-input-row">
                       <div class="input-field col s12 m6 l6">
                         <i class="material-icons prefix">account_box</i>

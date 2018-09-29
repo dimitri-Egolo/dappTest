@@ -9,6 +9,7 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.views import generic
 from django.core.files.storage import FileSystemStorage
+from django.db import IntegrityError
 # Create your views here.
 
 def index(request):
@@ -37,6 +38,8 @@ def createAccount(request):
     except KeyError:
         # redisplay register form to fill in required fields
         return render(request, 'authentication/register.html', context={'message': 'Please fill the form!'})
+    except IntegrityError as e:
+        return render(request, 'authentication/register.html', context={'message': 'The username and email should be unique!'})
 
 
 def loginView(request):

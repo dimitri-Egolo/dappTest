@@ -20,6 +20,9 @@
                   <span class="card-title">Login</span>
                   <form id="login_form" action="{% url 'auth:login' %}" method="post">
                     {% csrf_token %}
+                    <div class="row">
+                      <h6 class="right" style="color: red;">{{message}}</h6>
+                    </div>
                     <div class="row login-input-row">
                       <div class="input-field col s12">
                         <i class="material-icons prefix">email</i>

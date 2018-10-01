@@ -5,6 +5,29 @@
     <li class="divider"></li>
     <li><a href="{% url 'auth:logout' %}"><i class="material-icons left">exit_to_app</i>logout</a></li>
   </ul>
+
+  <ul id="nav-mobile" class="sidenav white">
+    <li><div class="user-view">
+      <div class="background">
+        <img src="{% static 'images/coffee.jpg' %}">
+      </div>
+      <a href="#user"><i class="material-icons left">account_circle</i></a>
+      <a href="#name"><span class="white-text name">{{ user.username}}</span></a>
+      <a href="#email"><span class="white-text email">{{ user.email }}</span></a>
+    </div></li>
+    <li><a href="{% url 'home' %}"><i class="material-icons left">home</i>Home</a></li>
+    <li class="divider"></li>
+    <li><a href="{% url 'auth:detail' user.id %}"><i class="material-icons left">edit</i>Profile</a></li>
+    <li class="divider"></li>
+    <li><a href="{% url 'auth:logout' %}"><i class="material-icons left">exit_to_app</i>logout</a></li>
+    <li class="divider"></li>
+  </ul>
+
+{% else %}
+  <ul id="nav-mobile" class="sidenav white">
+    <li><a href="{% url 'auth:authentication' %}">Connexion</a></li>
+    <li class="divider"></li>
+  </ul>
 {% endif %}
 
 <nav class="z-depth-0 navbar navbar-default" role="navigation">
@@ -13,7 +36,6 @@
     <a id="logo-container" href="#" class="brand-logo left"><img src="{% static 'images/dapplogo.png' %}" alt="logo" style="width: 100px;"></a>
 
     {% if user.is_authenticated %}
-
       <ul class="right hide-on-med-and-down navbar-nav">
         <li><a href="{% url 'home' %}"><i class="material-icons left">home</i>Home</a></li>
         <li>
@@ -26,30 +48,9 @@
             {{ user.username }}<i class="material-icons right">arrow_drop_down</i></a>
         </li>
       </ul>
-
-      <ul id="nav-mobile" class="sidenav white">
-        <li><div class="user-view">
-          <div class="background">
-            <img src="{% static 'images/coffee.jpg' %}">
-          </div>
-          <a href="#user"><i class="material-icons left">account_circle</i></a>
-          <a href="#name"><span class="white-text name">{{ user.username}}</span></a>
-          <a href="#email"><span class="white-text email">{{ user.email }}</span></a>
-        </div></li>
-        <li><a href="{% url 'home' %}"><i class="material-icons left">home</i>Home</a></li>
-        <li class="divider"></li>
-        <li><a href="{% url 'auth:detail' user.id %}"><i class="material-icons left">edit</i>Profile</a></li>
-        <li class="divider"></li>
-        <li><a href="{% url 'auth:logout' %}"><i class="material-icons left">exit_to_app</i>logout</a></li>
-        <li class="divider"></li>
-      </ul>
     {% else %}
 
       <ul class="right hide-on-med-and-down navbar-nav">
-        <li><a href="{% url 'auth:authentication' %}">Connexion</a></li>
-      </ul>
-
-      <ul id="nav-mobile" class="sidenav white">
         <li><a href="{% url 'auth:authentication' %}">Connexion</a></li>
       </ul>
     {% endif %}

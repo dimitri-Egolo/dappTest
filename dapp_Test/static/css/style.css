@@ -143,7 +143,10 @@ p {
 /* our skills css */
 .clearfix:before,.clearfix:after {content: " "; display: table;}
 .clearfix:after {clear: both;}
-.clearfix {*zoom: 1;}
+.clearfix {
+  *zoom: 1;
+  text-align: center;
+}
 
 .c100.skill-color .bar, .c100.skill-color .fill {
   border-color: #f44336 !important;

@@ -35,8 +35,6 @@ class UserProfile(AbstractUser):
     email = models.EmailField(unique=True)
     username = models.CharField(max_length=40, unique=True)
 
-    first_name = models.CharField(max_length=45, blank=False, null=False)
-    last_name = models.CharField(max_length=45, blank=False, null=False)
     photo = models.ImageField(upload_to='uploads/')
     tagline = models.CharField(max_length=140, blank=True)
 

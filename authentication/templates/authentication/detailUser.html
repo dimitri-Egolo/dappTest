@@ -73,14 +73,16 @@
           </div>
         </div>
 
-        <div class="row" style="margin-top: 50px;">
+        <div class="row" style="margin-top: 50px; text-align: end;">
           <div class="col s12 big-size">
-            <input id="edit" class="btn-large right red lighten-1" type="submit" value="Edit your profile"/>
-            <a href="{% url 'home' %}" id="download-button" class="btn-large right waves-effect waves-light black" style="margin-right: 20px;">Cancel</a>
+            <a href="{% url 'home' %}" class="btn-large waves-effect waves-light red" style="margin-right: 5px;">Cancel</a>
+            <input id="edit" class="btn-large green lighten-1" type="submit" value="Edit your profile"/>
           </div>
-          <div class="col s12 small-size">
-            <input id="edit" class="btn-large right red lighten-1" type="submit" value=""><i class="material-icons">edit</i></input>
-            <a href="{% url 'home' %}" id="download-button" class="btn-large right waves-effect waves-light black" style="margin-right: 20px;"><i class="material-icons">cancel</i></a>
+          <div class="col s12 small-size right">
+            <a href="{% url 'home' %}" class="btn-small waves-effect waves-light red" style="margin-right: 5px;"><i class="material-icons">cancel</i></a>
+            <button id="edit" class="btn-small waves-effect waves-light green lighten-1" type="submit" name="action" style="padding-left: 0px;">
+              <i class="material-icons right">save</i>
+            </button>
           </div>
         </div>
       </form>

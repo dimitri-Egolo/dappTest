@@ -22,18 +22,18 @@ def register(request):
 
 def createAccount(request):
     try:
-        user1 = UserProfile.objects.create_user(first_name=request.POST.get('first_name', None),
-                                                last_name=request.POST.get('last_name', None),
-                                                username=request.POST['username'],
+        user1 = UserProfile.objects.create_user(username=request.POST['username'],
                                                 email=request.POST['email'],
                                                 password=request.POST['password'])
+        user1.first_name = request.POST.get('first_name', None)
+        user1.last_name = request.POST.get('last_name', None)
         if 'photo' in request.FILES:
             photo = request.FILES['photo']
             fs = FileSystemStorage()
             filename = fs.save(photo.name, photo)
             uploaded_file_url = fs.url(filename)
             user1.photo = uploaded_file_url
-            user1.save()
+        user1.save()
         return HttpResponseRedirect(reverse('auth:authentication'))
     except KeyError:
         # redisplay register form to fill in required fields
@@ -91,11 +91,11 @@ def updateUser(request, pk):
             render(request, 'authentication/detailUser.html', {'message': 'Please fill in the required fields!'})
 
         if 'photo' in request.FILES:
+            photo = request.FILES['photo']
             fs = FileSystemStorage()
             filename = fs.save(photo.name, photo)
             uploaded_file_url = fs.url(filename)
             user_to_update.photo = uploaded_file_url
-
         password = request.POST.get('password', None)
         if password and password != '':
             user_to_update.set_password(password)

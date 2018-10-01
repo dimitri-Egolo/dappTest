@@ -11,7 +11,12 @@
       <div class="background">
         <img src="{% static 'images/coffee.jpg' %}">
       </div>
-      <a href="#user"><i class="material-icons left">account_circle</i></a>
+      <a href="#user">
+        {% if user.photo.url != '' %}
+          <img src="{{ user.photo.url }}" class="responsive-img circle" style="width: 20px; height: 20px;" />
+        {% else %}
+          <i class="material-icons left">account_circle</i>
+        {% endif %}</a>
       <a href="#name"><span class="white-text name">{{ user.username}}</span></a>
       <a href="#email"><span class="white-text email">{{ user.email }}</span></a>
     </div></li>
